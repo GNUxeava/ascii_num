@@ -1,72 +1,270 @@
 #include <stdio.h>
-#include <ctype.h>
 #include "ascii_num.h"
 
-void print_num(char num)
+/*
+ * 	*****
+ */
+void print_horizontal()
 {
-	switch(num)
+	int i = 0;
+	for (i = 0; i < 5; ++i)
 	{
-		case '0': print_zero();
-			break;
+		printf("*");
+	}
+	printf("\n");
 
-		case '1': print_one();
-			break;
+	return ;
+}
 
-		case '2': print_two();
-			break;
-
-		case '3': print_three();
-			break;
-			
-		case '4': print_four();
-			break;
-
-		case '5': print_five();
-			break;
-
-		case '6': print_six();
-			break;
-
-		case '7': print_seven();
-			break;
-
-		case '8': print_eight();
-			break;
-
-		case '9': print_nine();
-			break;
-
-		default: break;
+/*
+ * 	*****
+ * 	*   *
+ * 	*   *
+ * 	*   *
+ * 	*****
+ */
+void print_zero()
+{
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (i == 0 || i == 4)
+		{
+			print_horizontal();
+		}
+		else printf("*   *\n");
 	}
 
 	return ;
 }
 
-int main(int argc, char **argv)
+/*
+ * 	*
+ * 	*
+ * 	*
+ * 	*
+ * 	*
+ */
+void print_one()
 {
-	if (argc == 1)
+	int i = 0;
+
+	printf("\n");
+	for (i = 0; i < 5; ++i)
 	{
-		printf("Enter one or more arguments.\n");
-		return 0;
+		printf("*\n");
 	}
 
-	if (argc > 1)
+	return ;	
+}
+
+/*
+ * 	*****
+ * 	    *
+ * 	*****
+ * 	*
+ * 	*****
+ */
+void print_two()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
 	{
-		int counter = 0;
-		for (counter = 1; counter < argc; ++counter)
+		if (!(i % 2))
 		{
-			int i = 0;
-			for (i = 0; argv[counter][i] != '\0'; ++i)
-			{
-				if (!(isdigit(argv[counter][i])))
-				{
-					continue;
-				}
-				else print_num(argv[counter][i]);
-			}
+			print_horizontal();
 		}
+		else if (i == 1)
+		{
+			printf("%5s\n", "*");
+		}
+		else printf("*\n");
 	}
 
-	return 0;
+	return;
+}
+
+/*
+ * 	*****
+ * 	    *
+ * 	*****
+ * 	    *
+ * 	*****
+ */
+void print_three()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (!(i % 2))
+		{
+			print_horizontal();
+		}
+		else printf("%5s\n", "*");
+	}
+
+	return ;
+}
+
+/*
+ * 	*   *
+ * 	*   *
+ * 	*****
+ * 	    *
+ * 	    *
+ */
+void print_four()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (i < 2)
+		{
+			printf("*   *\n");
+			continue;
+		}
+		else if (i == 2)
+		{
+			print_horizontal();
+		}
+		else printf("%5s\n", "*");
+	}
+
+	return ;
+}
+
+/*
+ * 	*****
+ * 	*
+ * 	*****
+ * 	    *
+ * 	*****
+ */
+void print_five()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (!(i % 2))
+		{
+			print_horizontal();
+		}
+		else if (i == 1)
+		{
+			printf("*\n");
+		}
+		else printf("%5s\n", "*");
+	}
+
+	return ;
+}
+
+/*
+ * 	*****
+ * 	*
+ * 	*****
+ * 	*   *
+ * 	*****
+ */
+void print_six()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (!(i % 2))
+		{
+			print_horizontal();
+		}
+		else if (i == 1)
+		{
+			printf("*\n");
+		}
+		else printf("*   *\n");
+	}
+
+	return ;
+}
+
+/*
+ * 	*****
+ * 	    *
+ * 	    *
+ * 	    *
+ * 	    *
+ */
+void print_seven()
+{
+	printf("\n");
+
+	int i = 0;
+	print_horizontal();
+	for (i = 0; i < 4; ++i)
+	{
+		printf("%5s\n", "*");
+	}
+
+	return ;
+}
+
+/*
+ * 	*****
+ * 	*   *
+ * 	*****
+ * 	*   *
+ * 	*****
+ */
+void print_eight()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (!(i % 2))
+		{
+			print_horizontal();
+		}
+		else printf("*   *\n");
+	}
+
+	return ;
+}
+
+/*
+ * 	*****
+ * 	*   *
+ * 	*****
+ * 	    *
+ * 	    *
+ */
+void print_nine()
+{
+	printf("\n");
+
+	int i = 0;
+	for (i = 0; i < 5; ++i)
+	{
+		if (i == 0 || i == 2)
+		{
+			print_horizontal();
+		}
+		else if (i == 1)
+		{
+			printf("*   *\n");
+		}
+		else printf("%5s\n", "*");
+	}
+
+	return ;
 }
 
